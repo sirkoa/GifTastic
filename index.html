@@ -3,8 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GifTastic</title>
+	<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	
 </head>
 <body>
-	
+	<div class="container">
+    <div class="jumbotron text-center">
+      <h1 class="text-center">Giftastic!</h1>
+      
+
+    </div>
+    <form id="Gif-form">
+
+      <label for="Gif-input">Add a Gif Bro</label>
+      <input type="text" id="Gif-input"><br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-gif" class = "btn" type="submit" value="Add a Gif Bro">
+      <br>
+      <br>
+    </form>
+<div id ="gif-button"></div>
+<div class = "row">
+<div id="gifs-appear-here"></div>
+</div>
+<script src = "assets/gif.js" type="text/javascript"></script>
+
 </body>
 </html>
