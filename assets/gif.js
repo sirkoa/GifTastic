@@ -8,11 +8,12 @@ function printbuttons(){
   for (var i = 0; i < gifs.length; i++) {
       var a = $("<button>");
           // Adding a class of movie to our button
-          a.addClass("gif-button btn");
+          a.addClass("gif-button btn btn-primary");
           // Adding a data-attribute
           a.attr("data-name", gifs[i]);
           // Providing the initial button text
           a.text(gifs[i]);
+          a.css({margin: 5})
           // Adding the button to the buttons-view div
           $("#gif-button").append(a);
 
@@ -35,6 +36,7 @@ $(document).on("click", ".gif-button", function() {
         })
         // After the data comes back from the API
         .done(function(response) {
+          $("#gifs-appear-here").empty();
           // Storing an array of results in the results variable
           var results = response.data;
           // Looping over every result item
@@ -54,6 +56,7 @@ $(document).on("click", ".gif-button", function() {
               personImage.attr("data-still", results[i].images.fixed_height_still.url);
               personImage.attr("data-animate", results[i].images.fixed_height.url);
               personImage.attr("data-state", "still");
+              personImage.css({margin:20});
               
               gifDiv.append(p);
               gifDiv.append(personImage);
@@ -77,10 +80,12 @@ $(document).on("click", "img", function() {
       }
     });
 
-$("#add-Gif").on("click",function(event){
-  event.preventDefault()
-  var textInput = $("#Gif-input").val().trim();
-  gifs.push(textInput);
+$("#add-gif").on("click",function(event){
+  event.preventDefault();
+  var newGif = $("#gif-input").val().trim();
+  console.log(newGif)
+  gifs.push(newGif)
+  $("#gif-input").val("");
   printbuttons()
 })
 })
